@@ -1,0 +1,18 @@
+package com.uma.IplApp.ServiceImpl;
+
+import com.uma.IplApp.Model.User;
+import com.uma.IplApp.Service.UserService;
+
+public class TeamServiceImpl implements UserService{
+
+	public void addUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public User authUser(String email, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.uma.IplApp.Service;
+
+public interface UserService {
+
+}

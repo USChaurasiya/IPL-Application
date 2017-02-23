@@ -1,0 +1,9 @@
+package com.uma.IplApp.ServiceImpl;
+
+import com.uma.IplApp.Model.User;
+
+public class TeamServiceImpl {
+	void addUser(User user);
+
+	User authUser(String email, String password);
+}

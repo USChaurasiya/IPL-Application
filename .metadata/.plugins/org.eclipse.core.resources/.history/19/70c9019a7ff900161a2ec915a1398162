@@ -1,0 +1,19 @@
+package com.uma.JsonApp.Util;
+
+import java.io.FileReader;
+
+import org.json.simple.parser.JSONParser;
+
+public class JsonProg {
+	public static void main(String[] args) {
+		JSONParser parser=new JSONParser();
+		
+		try {
+			Object obj=parser.parse(new FileReader("/home/bridgeit/Desktop/UMA/IPL Data"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

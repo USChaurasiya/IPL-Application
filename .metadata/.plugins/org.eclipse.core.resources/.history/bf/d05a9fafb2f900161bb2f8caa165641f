@@ -1,0 +1,19 @@
+package com.uma.IplApp.Controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.uma.IplApp.Model.User;
+import com.uma.IplApp.ServiceImpl.UserServiceImpl;
+
+@Controller
+public class UserController {
+private UserServiceImpl UserServiceImpl;
+	@RequestMapping("signup.html")
+	public String userDetail(@ModelAttribute User user)
+	{
+		UserServiceImpl.addUser(user);
+		return "login.jsp";
+	}
+}
