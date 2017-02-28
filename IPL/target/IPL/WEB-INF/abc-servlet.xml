@@ -1,61 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
- xmlns:util="http://www.springframework.org/schema/util" xmlns:mvc="http://www.springframework.org/schema/mvc"
- xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
-  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-  http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
-  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
- <context:component-scan base-package="com.uma.IplApp.Controller" />
- <context:property-placeholder location="classpath:database.properties" />
- <mvc:annotation-driven />
+	<tx:annotation-driven />
+	<mvc:annotation-driven />
+	<!-- To specify the resource locations  -->
+	<mvc:resources location="/images/" mapping="/images/**" />
 
- <bean id="dataSource"
-  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-  <property name="driverClassName" value="${jdbc.driverClassName}" />
-  <property name="url" value="${jdbc.url}" />
-  <property name="username" value="${jdbc.username}" />
-  <property name="password" value="${jdbc.password}" />
- </bean>
+	<!--To specify the error pages locations 
+	<mvc:view-controller path="/error" view-name="error" />-->
 
- <bean id="sessionFactory"
-  class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-  <property name="dataSource" ref="dataSource" />
-  <property name="annotatedClasses">  
-            <list>  
-                <value>com.uma.IplApp.Model.User</value>  
-            </list>  
-        </property> 
-  <property name="hibernateProperties">
-   <props>
-    <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-    <prop key="hibernate.show_sql">true</prop>
-    <prop key="hibernate.hbm2ddl.auto">create</prop>
-   </props>
-  </property>
- </bean>
+	<!--controller and services scan -->
+	<context:component-scan base-package="com.uma.IplApp.Controller" />
+	<context:component-scan base-package="com.uma.IplApp.Service" />
 
- <bean id="txManager"
-  class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-  <property name="sessionFactory" ref="sessionFactory" />
- </bean>
+	<!--To specify the view components -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="resources/messages" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
 
- <bean id="persistenceExceptionTranslationPostProcessor"
-  class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
-  
- <bean id="viewResolver"
-  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-  <property name="prefix">
-   <value>/WEB-INF/pages/</value>
-  </property>
-  <property name="suffix">
-   <value>.jsp</value>
-  </property>
- </bean>
+	<!-- Pooled data source. -->
+	<bean id="pooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/IPL" />
+		<property name="user" value="root" />
+		<property name="password" value="root" />
+		<property name="maxPoolSize" value="100" />
+		<property name="minPoolSize" value="3" />
+		<property name="maxStatements" value="4" />
+	</bean>
+
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="pooledDataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>
+					com.uma.IplApp.Model.User
+				</value>
+				<value>
+					com.uma.IplApp.Model.Team
+				</value>
+				<value>
+					com.uma.IplApp.Model.Player
+				</value>
+			</list>
+		</property>
 
 
- <bean id="userDAOImpl" class="com.uma.IplApp.DAOImpl.UserDAOImpl" />
- <bean id="userServiceImpl" class="com.uma.IplApp.ServiceImpl.UserServiceImpl" />
+		<!--Hibernate properties -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect"> org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!--userDao depedency injection -->
+	<bean id="userDAO" class="com.uma.IplApp.DAOImpl.UserDAOImpl"></bean>
+
+	<!--userServices depedency injection -->
+	<bean id="userService" class="com.uma.IplApp.ServiceImpl.UserServiceImpl"></bean>
+
+	<!--teamDao depedency injection -->
+	<bean id="teamDAO" class="com.uma.IplApp.DAOImpl.TeamDAOImpl"></bean>
+
+	<!--teamService injection -->
+	<bean id="teamService" class="com.uma.IplApp.ServiceImpl.TeamServiceImpl"></bean>
+
+	<!--playerDao depedency injection -->
+	<bean id="playerDAO" class="com.uma.IplApp.DAOImpl.PlayerDAOImpl"></bean>
+
+	<!--playerService depedency injection -->
+	<bean id="playerService" class="com.uma.IplApp.ServiceImpl.PlayerServiceImpl"></bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+<!-- The java mail API injection -->
+
+	<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="username" value="daruhmetri@gmail.com" />
+		<property name="password" value="9900141087appa" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.socketFactory.port">465</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+				<prop key="mail.smtp.port">465</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="mail" class="com.bridgelabz.ipl.email.Mail">
+		<property name="mailSender" ref="mailSender" />
+	</bean> -->
 
 </beans>

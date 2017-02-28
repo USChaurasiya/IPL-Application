@@ -1,49 +1,48 @@
 package com.uma.IplApp.Model;
 
-import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 @Entity
-public class User implements Serializable{
-
+@Table(name = "IPL_User")
+public class User {
 	@Id
-	@GenericGenerator(name="abc",strategy="increment")
-	@GeneratedValue(generator="abc")
-	private int id;
-	private String firstName;
-	private String lastName;
+	@GenericGenerator(name = "abc", strategy = "increment")
+	@GeneratedValue(generator = "abc")
+	@Column(name = "Id")
+	private Long id;
+	@Column(name = "Name")
+	private String name;
+	@Column(name = "Email")
 	private String email;
+	@Column(name = "Password")
 	private String password;
-	
-	public User() {
-		// TODO Auto-generated constructor stub
+	@Column(name = "MobileNumber")
+	private String mobileNumber;
+	@Column(name = "Country")
+	private String country;
+	@Column(name = "City")
+	private String city;
+
+	public Long getId() {
+		return id;
 	}
 
-	public User(String firstName, String lastName, String email, String password) {
-		setFirstName(firstName);
-		setLastName(lastName);
-		setEmail(email);
-		setPassword(password);
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
@@ -61,5 +60,29 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
 }
