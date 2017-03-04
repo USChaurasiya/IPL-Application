@@ -17,7 +17,9 @@
 		}
 
 		$('#left').click(function() {
+			//
 			moveItems('#sbTwo', '#sbOne');
+			
 		});
 
 		$('#right').on('click', function() {
@@ -229,7 +231,7 @@ footer a.up {
 						<div>
 							<h1>
 								<font color="white">${player.name}</font>
-							</h1>
+							</sbTwoh1>
 							<a
 								href="<c:url value="playerDetails"/>?playerName=${player.name}"><img
 								src="${player.displayPicture}" width="250px" height="250px" /></a>
@@ -254,10 +256,11 @@ footer a.up {
         <option value="3">Gamma</option>
         <option value="4">Delta</option>
         <option value="5">Epsilon</option> -->
-
+sbTwo
 	</select>
 
 	<select id="sbTwo" multiple="multiple">
+	
 	 <option  value="default">Selected Player:</option>
 
 

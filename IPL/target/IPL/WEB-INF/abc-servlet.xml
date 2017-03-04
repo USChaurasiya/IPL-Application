@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/beans">
 
 	<tx:annotation-driven />
 	<mvc:annotation-driven />
@@ -14,7 +14,6 @@
 
 	<!--To specify the error pages locations 
 	<mvc:view-controller path="/error" view-name="error" />-->
-
 	<!--controller and services scan -->
 	<context:component-scan base-package="com.uma.IplApp.Controller" />
 	<context:component-scan base-package="com.uma.IplApp.Service" />
@@ -58,6 +57,7 @@
 				<value>
 					com.uma.IplApp.Model.Player
 				</value>
+				
 			</list>
 		</property>
 
@@ -72,9 +72,12 @@
 		</property>
 	</bean>
 	
+	<!-- <bean id="dreamTeamPlayerDAO" class="com.uma.IplApp.DAOImpl.DreamTeamPlayerDAOImpl"></bean> -->
 	<!--userDao depedency injection -->
 	<bean id="userDAO" class="com.uma.IplApp.DAOImpl.UserDAOImpl"></bean>
 
+
+<!-- <bean id="dreamPlayerService" class="com.uma.IplApp.ServiceImpl.DreamPlayerServiceImpl"></bean> -->
 	<!--userServices depedency injection -->
 	<bean id="userService" class="com.uma.IplApp.ServiceImpl.UserServiceImpl"></bean>
 
@@ -96,6 +99,9 @@
 	</bean>
 
 
+<mvc:resources mapping="/CSS/**" location="/CSS/" cache-period="31556926"/>
+
+
 <!-- The java mail API injection -->
 
 	<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
@@ -114,5 +120,7 @@
 	<bean id="mail" class="com.bridgelabz.ipl.email.Mail">
 		<property name="mailSender" ref="mailSender" />
 	</bean> -->
-
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="maxUploadSize" value="10000000"/>
+</bean>
 </beans>

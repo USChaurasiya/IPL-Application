@@ -7,11 +7,13 @@
 /home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/IplApp/Controller/SignInController.java
 /home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/IplApp/DAOImpl/PlayerDAOImpl.java
 /home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/IplApp/DAOImpl/TeamDAOImpl.java
+/home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/IplApp/Model/DreamPlayer.java
 /home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/IplApp/Controller/PlayerController.java
 /home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/IplApp/Service/PlayerService.java
 /home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/IplApp/ServiceImpl/TeamServiceImpl.java
 /home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/servletFilter/AuthenticationFilter.java
 /home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/IplApp/DAOImpl/UserDAOImpl.java
+/home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/IplApp/Controller/DreamPlayerController.java
 /home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/IplApp/ServiceImpl/UserServiceImpl.java
 /home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/IplApp/Controller/TeamController.java
 /home/bridgeit/Desktop/IPL/IPL/src/main/java/com/uma/IplApp/Model/Team.java

@@ -40,6 +40,7 @@ $('#rightall').on('click', function () {
 </head>
 <body>
 <h2>Move Items From One List to Another</h2>
+ 
     <select id="sbOne" multiple="multiple">
     <c:forEach var="player" items="${dreamPlayerInfo}">
     <option>${player.name}</option>
@@ -51,17 +52,22 @@ $('#rightall').on('click', function () {
         <option value="5">Epsilon</option> -->
         
     </select>
- 
-    <select id="sbTwo" multiple="multiple">
-        <option>Selected Player</option>
+<form:form action="dreamPlayer" method="Post">
+    <select id="sbTwo" name="myPlayer" multiple="multiple">
+        <option></option>
        
     </select>
- 
+    <input type="submit" value="Confirm">
+</form:form>
     <br />
  
     <input type="button" id="left" value="<"/>
     <input type="button" id="right" value=">"/>
     <input type="button" id="leftall" value="<<"/>
     <input type="button" id="rightall" value=">>"/>
+    
+    
+    
 </body>
+
 </html>

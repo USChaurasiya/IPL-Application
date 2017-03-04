@@ -2,6 +2,7 @@ package com.uma.IplApp.Controller;
 
 import java.io.FileReader;
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -9,11 +10,13 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.uma.IplApp.Model.DreamPlayer;
 import com.uma.IplApp.Model.Player;
 import com.uma.IplApp.Service.PlayerService;
 @Controller
@@ -21,13 +24,7 @@ public class PlayerController {
 	@Autowired
 	PlayerService playerService;
 
-	@RequestMapping(value = "/dreamPlayerList", method = RequestMethod.GET)
-	public ModelAndView displayAllTeam() {
-
-		List<Player> dreamPlayerInfo = playerService.displayAllPlayer();
-
-		return new ModelAndView("dreamPlayerList", "dreamPlayerInfo", dreamPlayerInfo);
-	}
+	
 	
 	
 	@RequestMapping(value = "/playerList", method = RequestMethod.GET)

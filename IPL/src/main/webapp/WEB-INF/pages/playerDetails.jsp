@@ -172,6 +172,8 @@ background-color: #F3FAB6;
 	<tr>
 			<th>DisplayPicture</th>
 			<td><img src="${player.displayPicture}" width="180px" height="180px"/></td>
+			
+			
 		</tr>
 		<div>
 			<div><font color="white">Id: ${player.id}</font></div>
@@ -210,9 +212,13 @@ background-color: #F3FAB6;
 		 </div>
 			<div><font color="white"><a href="teamList">click here to go back team list</a></font></div>
 			
+		
 			</figure>
 			</div>
 			</c:forEach>
+			
+			
+			
 	</article>
 	
 		</section>

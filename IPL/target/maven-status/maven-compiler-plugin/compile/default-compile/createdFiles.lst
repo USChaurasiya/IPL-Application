@@ -7,6 +7,7 @@ com/uma/IplApp/DAOImpl/PlayerDAOImpl.class
 com/uma/IplApp/DAOImpl/UserDAOImpl.class
 com/uma/IplApp/ServiceImpl/PlayerServiceImpl.class
 com/uma/IplApp/Controller/TeamController.class
+com/uma/IplApp/Controller/DreamPlayerController.class
 com/uma/IplApp/Service/UserService.class
 com/uma/IplApp/Model/Team.class
 com/uma/IplApp/DAO/TeamDAO.class
@@ -18,3 +19,4 @@ com/uma/IplApp/Model/User.class
 com/uma/IplApp/ServiceImpl/UserServiceImpl.class
 com/uma/IplApp/DAO/UserDAO.class
 com/uma/IplApp/Controller/SignUpController.class
+com/uma/IplApp/Model/DreamPlayer.class
