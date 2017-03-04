@@ -137,6 +137,8 @@ margin: 0%;
 padding: 0%;
 margin-left: 3%;
 }
+
+
 </style>
 <body background="images/images.jpg">
 <section id="page"> 
@@ -152,7 +154,7 @@ margin-left: 3%;
 				<li><a href="about">About</a></li>
 				<li><a href="contact">Contact</a></li>
 				<li><a href="signout">Logout</a></li>
-
+				<li><a href="dreamPlayerList">Create your Dream Team</a>
 				</ul>
 
 	</nav> </header>

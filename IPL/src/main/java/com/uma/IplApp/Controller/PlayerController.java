@@ -21,6 +21,15 @@ public class PlayerController {
 	@Autowired
 	PlayerService playerService;
 
+	@RequestMapping(value = "/dreamPlayerList", method = RequestMethod.GET)
+	public ModelAndView displayAllTeam() {
+
+		List<Player> dreamPlayerInfo = playerService.displayAllPlayer();
+
+		return new ModelAndView("dreamPlayerList", "dreamPlayerInfo", dreamPlayerInfo);
+	}
+	
+	
 	@RequestMapping(value = "/playerList", method = RequestMethod.GET)
 	public ModelAndView displayAllTeam(@RequestParam("teamId") int teamId, @RequestParam("teamName") String teamName,
 			Model model) {
@@ -93,4 +102,6 @@ public class PlayerController {
 		}
 		return "signin";
 	}
+	
+	
 }

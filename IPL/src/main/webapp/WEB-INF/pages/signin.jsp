@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
+
+
 <style type="text/css">
 h3 {
 	padding-right: 100px;
@@ -141,6 +144,9 @@ footer a.up {
 	float: right;
 }
 </style>
+<spring:url value="/CSS/IPl.css" var="mainCss" />
+	
+	<link href="${mainCss}" rel="stylesheet"/>
 </head>
 <body background="images/images.jpg">
 
@@ -149,21 +155,15 @@ footer a.up {
 	<header> <!-- Defining the header section of the page with the appropriate tag -->
 
 	<img src="images/iplLogo.jpg" alt="logo" width="450px" height="150" />
+<div id="mySidenav" class="sidenav">
+  <a href="about" id="about">About</a>
+  <a href="signin" id="signIn">SignIn</a>
+  <a href="signup" id="signup">SignUp</a>
+  <a href="contact" id="contact">Contact</a>
+</div>
 
-
-	<nav class="clear"> <!-- The nav link semantically marks your main site navigation -->
-
-	<ul>
-
-		<li><a href="index.jsp">Home</a></li>
-		<li><a href="about">About</a></li>
-		<li><a href="signin">Sign In</a></li>
-		<li><a href="contact">Contact</a></li>
-		<li><a href="signup">Sign Up</a></li>
-
-	</ul>
-
-	</nav> </header>
+	
+</header>
 
 	<div class="line"></div>
 	<!-- Dividing line --> <article id="article1"> <!-- The new article tag. The id is supplied so it can be scrolled into view. -->

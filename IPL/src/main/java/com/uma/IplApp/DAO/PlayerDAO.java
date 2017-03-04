@@ -10,4 +10,7 @@ public interface PlayerDAO {
 	List<Player> displayAllPlayer(int teamId);
 
 	List<Player> displayPlayerInfo(String playerName);
+	
+	List<Player> displayAllPlayer();
+
 }

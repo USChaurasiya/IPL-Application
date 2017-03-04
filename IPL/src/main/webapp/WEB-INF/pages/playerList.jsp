@@ -1,16 +1,67 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
-<head></head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<spring:url value="/CSS/jquery-1.12.4.min.js" var="orbitJs" />
+<script src="${orbitJs}"></script>
+<script type="text/javascript">
+	$(function() {
+		function moveItems(origin, dest) {
+			$(origin).find(':selected').appendTo(dest);
+		}
 
-	<title>IPLT20.com</title>
-	<link rel="icon" href="images/icon.jpg" />
-	<link rel="stylesheet" type="text/css" href="styles.css" />
+		function moveAllItems(origin, dest) {
+			$(origin).children().appendTo(dest);
+		}
+
+		$('#left').click(function() {
+			moveItems('#sbTwo', '#sbOne');
+		});
+
+		$('#right').on('click', function() {
+			moveItems('#sbOne', '#sbTwo');
+		});
+
+		$('#leftall').on('click', function() {
+			moveAllItems('#sbTwo', '#sbOne');
+		});
+
+		$('#rightall').on('click', function() {
+			moveAllItems('#sbOne', '#sbTwo');
+		});
+	});
+
+	/* $('#left').click(function () {
+	 moveItems('#sbTwo', '#sbOne');
+	 });
+	
+	 $('#right').on('click', function () {
+	 moveItems('#sbOne', '#sbTwo');
+	 });
+	
+	 $('#leftall').on('click', function () {
+	 moveAllItems('#sbTwo', '#sbOne');
+	 });
+	
+	 $('#rightall').on('click', function () {
+	 moveAllItems('#sbOne', '#sbTwo');
+	 }); */
+</script>
+
+
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>IPLT20.com</title>
+<link rel="icon" href="images/icon.jpg" />
+
+<link rel="stylesheet" type="text/css" href="styles.css" />
 <style>
-tr{
-float:left;
-padding-left:75px; 
+tr {
+	float: left;
+	padding-left: 75px;
 }
 
 h3 {
@@ -91,13 +142,11 @@ nav, article, nav ul li a, figure {
 }
 
 article {
-	background-image:url(images/black-and-red-wallpaper-16.jpg);
+	background-image: url(images/black-and-red-wallpaper-16.jpg);
 	margin: 3em 0;
 	padding: 20px;
 	margin-left: 0px;
 }
-
-
 
 /* Footer styling: */
 footer {
@@ -132,65 +181,112 @@ footer a.by {
 footer a.up {
 	float: right;
 }
-.teamList{
 
-display: inline-block;
-padding: 2%;
-background-color:#142830; 
-margin: 0%;
+.teamList {
+	display: inline-block;
+	padding: 2%;
+	background-color: #142830;
+	margin: 0%;
 }
-.article2
-{
-padding: 0%;
-margin-left: 3%;
+
+.article2 {
+	padding: 0%;
+	margin-left: 3%;
 }
 </style>
 
 
 
 <body background="images/wal.jpg">
-<section id="page"> 
+	<section id="page">
 		<header>
 			<img src="images/iplLogo.jpg" alt="logo" width="450px" height="150" />
-			<nav class="clear"> 
+			<nav class="clear">
 				<ul>
-				<li><a href="index.jsp">Home</a></li>
-				<li><a href="about">About</a></li>
-				<li><a href="contact">Contact</a></li>
-				<li><a href="signout">Logout</a></li>
+					<li><a href="index.jsp">Home</a></li>
+					<li><a href="about">About</a></li>
+					<li><a href="contact">Contact</a></li>
+					<li><a href="signout">Logout</a></li>
+
 				</ul>
-	</nav> </header>
+			</nav>
+		</header>
 
 
-	<div class="line"></div>
-	 <article id="article1"> 
-	<div class="line"></div>
+		<div class="line"></div>
+		<article id="article1">
+			<div class="line"></div>
 
-	<div class="article2">
+			<div class="article2">
 
-	<h3 align="center">
-			<marquee behavior="scroll" direction="left"><font color="white">IPL 2017 Player List</font></marquee>
-		</h3>
-	<c:forEach var="player" items="${playerInfo}">
-	<div class="teamList">
-		<div>
-		<h1><font color="white">${player.name}</font></h1>
-		<a href="<c:url value="playerDetails"/>?playerName=${player.name}"><img src="${player.displayPicture}" width="250px" height="250px"/></a>
-		</div>				
-	</div>
-	</c:forEach>
+				<h3 align="center">
+					<marquee behavior="scroll" direction="left">
+						<font color="white">IPL 2017 Player List</font>
+					</marquee>
+				</h3>
+				<c:forEach var="player" items="${playerInfo}">
+					<div class="teamList">
+						<div>
+							<h1>
+								<font color="white">${player.name}</font>
+							</h1>
+							<a
+								href="<c:url value="playerDetails"/>?playerName=${player.name}"><img
+								src="${player.displayPicture}" width="250px" height="250px" /></a>
+						</div>
 
-</div>
-	</article>
-	
-		</section>
+
+
+
+
+					</div>
+				</c:forEach>
+
+			</div>
+			
+			<h2>Move Items From One List to Another</h2>
+	<select id="sbOne" multiple="multiple">
+		<c:forEach var="player" items="${playerInfo}">
+			<option>${player.name}</option>
+		</c:forEach>
+		<!--  <option value="1">Alpha</option>
+        <option value="2">Beta</option>
+        <option value="3">Gamma</option>
+        <option value="4">Delta</option>
+        <option value="5">Epsilon</option> -->
+
+	</select>
+
+	<select id="sbTwo" multiple="multiple">
+	 <option  value="default">Selected Player:</option>
+
+
+	</select>
+
+	<br />
+
+	<input type="button" id="left"value="<"/>
+	<input type="button" id="right" value=">"/>
+    
+	<input type="button" id="leftall" value="<<"/>
+    <input type="button" id="rightall" value=">>"/>
+		</article>
+
+	</section>
+  
 	</body>
 <footer>
 	<div class="line"></div>
 
-	<p><font color="white">&copy; Vivo IPL 2017 Schedule. All Rights Reserved.</font></p>
-	<!-- Change the copyright notice --> <a href="#" class="up"><input
-		type="button" value="Go Up"></a> </footer>
-	
+	<p>
+		<font color="white">&copy; Vivo IPL 2017 Schedule. All Rights
+			Reserved.</font>
+	</p>
+	<!-- Change the copyright notice -->
+	<a href="#" class="up"><input type="button" value="Go Up"></a>
+</footer>
+
+
+
 </html>
 

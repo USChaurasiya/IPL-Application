@@ -44,4 +44,14 @@ public class PlayerDAOImpl implements PlayerDAO {
 		return playerDetails;
 	}
 
+
+	public List<Player> displayAllPlayer() {
+		Session sess = sessionFactory.getCurrentSession();
+		Query qry = sess.createQuery("from Player");
+		
+		List<Player> playersInfo = qry.list();
+		System.out.println(playersInfo.size()+","+playersInfo.toString());
+		return playersInfo;
+	}
+
 }

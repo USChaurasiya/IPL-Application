@@ -26,4 +26,9 @@ public class PlayerServiceImpl implements PlayerService {
 		List<Player> playerInfo = playerDAO.displayPlayerInfo(playerName);
 		return playerInfo;
 	}
+	
+	public List<Player> displayAllPlayer() {
+		List<Player> playerList = playerDAO.displayAllPlayer();
+		return playerList;
+	}
 }
