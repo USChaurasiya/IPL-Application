@@ -37,37 +37,52 @@ $('#rightall').on('click', function () {
 });
 });
 </script>
+<style type="text/css">
+.box{
+display: inline-block;
+margin-left:5%;
+}
+.box1{
+display: inline-block;
+margin-left:3%;
+}
+.box2{
+display: inline-block;
+margin-left:0%;
+}
+</style>
 </head>
 <body>
 <h2>Move Items From One List to Another</h2>
- 
-    <select id="sbOne" multiple="multiple">
+<div class="box">
+    <select id="sbOne" multiple="multiple" size="35px">
+     <optgroup label="Player List">
     <c:forEach var="player" items="${dreamPlayerInfo}">
     <option>${player.name}</option>
+  <%--   <option>${player.role}</option> --%>
     </c:forEach>
-       <!--  <option value="1">Alpha</option>
-        <option value="2">Beta</option>
-        <option value="3">Gamma</option>
-        <option value="4">Delta</option>
-        <option value="5">Epsilon</option> -->
-        
+    </optgroup>
     </select>
+    </div>
+    <div class="box2">
+    <ul>
+    <li><input type="button" id="left" value="<"/></li>
+    <li><input type="button" id="right" value=">"/></li>
+    <li><input type="button" id="leftall" value="<<"/></li>
+    <li><input type="button" id="rightall" value=">>"/></li>
+    </ul>
+    </div>
+    <div class="box1">
 <form:form action="dreamPlayer" method="Post">
-    <select id="sbTwo" name="myPlayer" multiple="multiple">
-        <option></option>
-       
+    <select id="sbTwo" name="myPlayer" multiple="multiple" size="35px">
+     <optgroup label="Selected Dream Player List">
+        
+       </optgroup>
     </select>
     <input type="submit" value="Confirm">
 </form:form>
-    <br />
+</div>
  
-    <input type="button" id="left" value="<"/>
-    <input type="button" id="right" value=">"/>
-    <input type="button" id="leftall" value="<<"/>
-    <input type="button" id="rightall" value=">>"/>
-    
-    
-    
 </body>
 
 </html>

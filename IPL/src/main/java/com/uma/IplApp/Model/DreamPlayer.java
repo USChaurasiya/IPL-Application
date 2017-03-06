@@ -1,6 +1,8 @@
 package com.uma.IplApp.Model;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,11 +15,12 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "Dream_Player")
 public class DreamPlayer {
 	@Id
-	@GenericGenerator(name = "gene", strategy = "increment")
-	@GeneratedValue(generator = "gene")
+	@GenericGenerator(name = "abc", strategy = "increment")
+	@GeneratedValue(generator = "abc")
 	@Column(name = "id")
 	private Long id;
 
+	
 	private String[] myPlayer;
 
 	public Long getId() {
@@ -28,6 +31,7 @@ public class DreamPlayer {
 		this.id = id;
 	}
 
+	
 	public String[] getMyPlayer() {
 		return myPlayer;
 	}

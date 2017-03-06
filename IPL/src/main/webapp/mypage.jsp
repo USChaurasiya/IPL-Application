@@ -49,7 +49,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
             <c:forEach var="team" items="${teamInfo}">
                 <li><a href="<c:url value="teamDetails"/>?teamName=${team.name}"></a></li>
                 </c:forEach>
-                <li>Item 2</li>
+            
                 <li>Item 3</li>
                 <li>Item 4
                     <ul>
@@ -101,11 +101,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     </body>
     <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
+  
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
