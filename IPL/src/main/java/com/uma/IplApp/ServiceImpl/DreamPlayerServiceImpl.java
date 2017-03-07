@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.uma.IplApp.DAO.DreamPlayerDAO;
 import com.uma.IplApp.Model.DreamPlayer;
+import com.uma.IplApp.Model.Player;
 import com.uma.IplApp.Service.DreamPlayerService;
 
 public class DreamPlayerServiceImpl implements DreamPlayerService{
@@ -17,6 +18,13 @@ public class DreamPlayerServiceImpl implements DreamPlayerService{
 		
 		dreamPlayerDAO.addDreamPlayer(dreamPlayer);
 		System.out.println("inside dream player serviceImpl");
+	}
+
+
+	@Override
+	public Player dreamPlayerDetails(String name) {
+		
+		return dreamPlayerDAO.dreamPlayerDetails(name);
 	}
 		
 

@@ -1,0 +1,23 @@
+<html>
+<head>
+<style type="text/css">
+img{
+padding-left:220px;
+}
+p {
+    font-family: "Georgia", Times, serif;
+    font-style: oblique;
+    font-weight: lighter;
+   
+}
+</style>
+</head>
+<body>
+<jsp:include page="WEB-INF/pages/header.jsp"></jsp:include>
+<marquee  behavior="alternate" direction="left" scrollamount="8" ><font color="#8a1a41" size="20">Welcome to IPL 2017</font></marquee>
+<a href="templet.jsp">nav</a>
+<img src="images/iplCover.jpg" width="1000" height="500" alt="img not found"/>
+<!-- <img src="images/IPL-2016-cover.jpg" width="800" height="300" alt="img not found"/> -->
+<jsp:include page="WEB-INF/pages/footer.jsp"></jsp:include>
+</body>
+</html>

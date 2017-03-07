@@ -1,0 +1,29 @@
+package com.uma.IplApp.DAOImpl;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.uma.IplApp.DAO.DreamPlayerDAO;
+import com.uma.IplApp.Model.DreamPlayer;
+@Repository
+@Transactional
+public class DreamPlayerDAOImpl implements DreamPlayerDAO{
+
+	@Autowired
+	SessionFactory sessionFactory;
+	@Override
+	public void addDreamPlayer(DreamPlayer dreamPlayer) {
+		Session sess = sessionFactory.getCurrentSession();
+		try {
+			sess.save(dreamPlayer);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("inside dream player DAo");
+	}
+
+}

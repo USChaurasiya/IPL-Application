@@ -44,6 +44,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="/home/bridgeit/Desktop/IPL/IPL"/>
 			<item value="/home/bridgeit/Desktop/IPL/JSONDemo"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -57,6 +58,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.uma.IPLDemo"/>
 			<item value="com.uma.IPL"/>
 			<item value="com.uma.JSONDemo"/>
 		</list>
@@ -64,6 +66,7 @@
 			<item value="com.uma"/>
 		</list>
 		<list key="artifactId">
+			<item value="IPLDemo"/>
 			<item value="IPL"/>
 			<item value="JSONDemo"/>
 		</list>

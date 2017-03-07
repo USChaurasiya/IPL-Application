@@ -1,0 +1,219 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<style>
+tr{
+float:left;
+padding-left:75px; 
+}
+
+h3 {
+	padding-right: 100px;
+}
+
+h4 {
+	padding-right: 100px;
+	padding-top: 5px;
+}
+
+table {
+	padding-right: 100px;
+	width: 100px;
+	height: 50px;
+}
+
+header, footer, article, section, hgroup, nav, figure {
+	/* Giving a display value to the HTML5 rendered elements: */
+	display: block;
+}
+
+article .line {
+	/* The dividing line inside of the article is darker: */
+	background-color: #15242a;
+	border-bottom-color: #204656;
+	margin: 1.3em 0;
+}
+
+footer .line {
+	margin: 30em 0;
+}
+
+nav {
+	background: url(img/gradient_light.jpg) repeat-x 50% 50% #f8f8f8;
+	padding: 0 5px;
+	position: absolute;
+	right: 0;
+	top: 4em;
+	border: 1px solid #FCFCFC;
+	-moz-box-shadow: 0 1px 1px #333333;
+	-webkit-box-shadow: 0 1px 1px #333333;
+	box-shadow: 0 1px 1px #333333;
+}
+
+nav ul li {
+	display: inline;
+}
+
+nav ul li a, nav ul li a:visited {
+	color: #565656;
+	display: block;
+	float: left;
+	font-size: 1.25em;
+	font-weight: bold;
+	margin: 5px 2px;
+	padding: 7px 10px 4px;
+	text-shadow: 0 1px 1px white;
+	text-transform: uppercase;
+}
+
+nav ul li a:hover {
+	text-decoration: none;
+	background-color: #f0f0f0;
+}
+
+nav, article, nav ul li a, figure {
+	/* Applying CSS3 rounded corners: */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#page {
+	width: 1340px;
+	margin: 0 auto;
+	position: relative;
+}
+
+article {
+	background-color: #213E4A;
+	margin: 3em 0;
+	padding: 20px;
+}
+
+figure {
+	float: right;
+	height: 400px;
+	margin-left: 15px;
+	overflow: hidden;
+	width: 400px;
+}
+
+figure:hover {
+	-moz-box-shadow: 0 0 2px #4D7788;
+	-webkit-box-shadow: 0 0 2px #4D7788;
+	box-shadow: 0 0 2px #4D7788;
+}
+
+figure img {
+	margin-left: 0px;
+	margin-top: 100px;
+}
+
+/* Footer styling: */
+footer {
+	margin-top: 5px margin-bottom:30px;
+	text-align: center;
+	font-size: 0.825em;
+}
+
+footer p {
+	margin-bottom: -2.5em;
+	position: relative;
+}
+
+footer a, footer a:visited {
+	color: #cccccc;
+	background-color: #213e4a;
+	display: block;
+	padding: 2px 4px;
+	z-index: 100;
+	position: relative;
+}
+
+footer a:hover {
+	text-decoration: none;
+	background-color: #142830;
+}
+
+footer a.by {
+	float: left;
+}
+
+footer a.up {
+	float: right;
+}
+.teamList{
+display: inline-block;
+padding: 11%;
+background-color:#142830; 
+}
+</style>
+
+<body background="images/images.jpg">
+
+	<section id="page"> 
+		<header>
+			<img src="images/iplLogo.jpg" alt="logo" width="450px" height="150" />
+			<nav class="clear"> 
+				<ul>
+
+				<li><a href="index.jsp">Home</a></li>
+				<li><a href="about">About</a></li>
+				<li><a href="contact">Contact</a></li>
+				<li><a href="signout">Logout</a></li>
+
+				</ul>
+
+	</nav> </header>
+
+	<div class="line"></div>
+	 <article id="article1"> 
+	<div class="line"></div>
+
+	<div class="articleBody clear">
+<!-- 
+		<figure> 
+
+		<a href="http://tutorialzine.com/2010/02/photo-shoot-css-jquery/">
+			<img src="images/signin.png" width="400px" height="150px" alt="img not found" /></a></figure> -->
+
+		<h3 align="center">
+			<font color="white">IPL 2017 Team List</font>
+		</h3>
+		<h3>${Message}</h3>
+		
+	<!-- 	<table border="solid"> -->
+	<div class="teamList">
+
+	<c:forEach var="team" items="${teamInfo}">
+		<div>
+		<h1>${team.name}</h1>
+		<a href="<c:url value="teamDetails"/>?teamName=${team.name}"><img src="${team.logo}" width="250px" height="250px"/></a>
+		</div>				
+	</c:forEach>
+	</div>
+<!-- </table> -->
+	
+			
+
+	</div>
+	</article> 
+	<footer>
+
+	<div class="line"></div>
+
+	<p>&copy; Vivo IPL 2017 Schedule. All Rights Reserved.</p>
+	<!-- Change the copyright notice --> <a href="#" class="up"><input
+		type="button" value="Go Up"></a> </footer> </section>
+	<!-- Closing the #page section -->
+
+
+
+
+
+
+
+
+</body>
+
+
+

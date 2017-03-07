@@ -1,0 +1,16 @@
+package com.uma.IplApp.Controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+@Controller
+public class DreamPlayerController {
+
+	@RequestMapping("/dreamPlayer")
+	public String selectedDreamPlayer(@RequestParam(value="myPlayer") String[] list)
+	{
+		System.out.println("ffhfghngngn");
+		System.out.println(list);
+		return null;
+	}
+}

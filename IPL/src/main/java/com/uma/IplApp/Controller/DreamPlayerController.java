@@ -33,43 +33,47 @@ public class DreamPlayerController {
 		return new ModelAndView("dreamPlayerList", "dreamPlayerInfo", dreamPlayerInfo);
 	}
 	
+	
 	@RequestMapping("/dreamPlayer")
-	public String selectedDreamPlayer(@SuppressWarnings("rawtypes") @RequestParam(value="myPlayer") String[] myPlayer)
+	public String selectedDreamPlayer( @RequestParam(value="myPlayer") String[] myPlayer)
 	{
 		DreamPlayer dreamPlayer=new DreamPlayer();
-		/*dreamPlayer.setMyPlayer(player);*/
-		System.out.println(myPlayer);
-		
-		//dreamPlayerService.addDreamPlayer(dreamPlayer);
-	
-		/*JSONObject obj = new JSONObject();
-        obj.put("Id", dreamPlayer.getId());
-       
-
-        JSONArray list = new JSONArray();
-        for(int i=0;i<myPlayer.length;i++)
-        {
-        	list.add(myPlayer);
-        }
-     
-        obj.put("Dream Player", list);
-
-        try (FileWriter file = new FileWriter("/home/bridgeit/Desktop/IPL/DreamPlayer.json")) {
-
-            file.write(obj.toJSONString());
-            file.flush();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-      */
-
+		/*for(int i=0;i<myPlayer.length;i++)
+		{
+			System.out.println(myPlayer[i]);
+			Player p=dreamPlayerService.dreamPlayerDetails(myPlayer[i]);
+			System.out.println(p.getRole());
+		}
 		
 		
-		
-		
-		
+	*/
+		System.out.println(myPlayer[0]);
+		JSONObject dreamTeam=new JSONObject();
+		JSONArray dreamList=new JSONArray();
+		 for(int i=0;i<myPlayer.length;i++)
+	        {
+	            JSONObject dreamPlayers=new JSONObject();
+	            
+	            dreamPlayers.put("Player_Name",dreamPlayerService.dreamPlayerDetails(myPlayer[i]).getName());
+	            dreamPlayers.put("Player_Role",dreamPlayerService.dreamPlayerDetails(myPlayer[i]).getRole());
+	            dreamPlayers.put("Batting Style",dreamPlayerService.dreamPlayerDetails(myPlayer[i]).getBattingStyle());
+	            dreamPlayers.put("Player_DOB",dreamPlayerService.dreamPlayerDetails(myPlayer[i]).getDob());
+	            dreamPlayers.put("Player_Nationality",dreamPlayerService.dreamPlayerDetails(myPlayer[i]).getNationality());
+	            dreamPlayers.put("Image_URL",dreamPlayerService.dreamPlayerDetails(myPlayer[i]).getDisplayPicture());
+	            dreamPlayers.put("Player_TeamID",dreamPlayerService.dreamPlayerDetails(myPlayer[i]).getTeamId());
+	            	
+	            dreamList.add(dreamPlayers);
+	        }
+		 dreamTeam.put("DreamPlayerList", dreamList);
+		 
+		 try (FileWriter file = new FileWriter("/home/bridgeit/Desktop/IPL/DreamPlayer.json")) {
+	            file.write(dreamTeam.toJSONString());
+	            file.flush();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+		 
 		return "redirect:/dreamPlayerList";
 	}
+	
 }

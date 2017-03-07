@@ -1,0 +1,241 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<style type="text/css">
+h3{
+padding-right:100px;
+}
+h4{
+padding-right:100px;
+padding-top:5px; 
+}
+table
+{
+padding-right:100px;
+width: 100px;
+height: 50px;
+}
+header,footer,
+article,section,
+hgroup,nav,
+figure{
+	/* Giving a display value to the HTML5 rendered elements: */
+	display:block;
+}
+
+article .line{
+	/* The dividing line inside of the article is darker: */
+	background-color:#15242a;
+	border-bottom-color:#204656;
+	margin:1.3em 0;
+}
+
+footer .line{
+	margin:30em 0;
+}
+
+nav{
+	background:url(img/gradient_light.jpg) repeat-x 50% 50% #f8f8f8;
+	padding:0 5px;
+	position:absolute;
+	right:0;
+	top:4em;
+
+	border:1px solid #FCFCFC;
+
+	-moz-box-shadow:0 1px 1px #333333;
+	-webkit-box-shadow:0 1px 1px #333333;
+	box-shadow:0 1px 1px #333333;
+}
+
+nav ul li{
+	display:inline;
+}
+
+nav ul li a,
+nav ul li a:visited{
+	color:#565656;
+	display:block;
+	float:left;
+	font-size:1.25em;
+	font-weight:bold;
+	margin:5px 2px;
+	padding:7px 10px 4px;
+	text-shadow:0 1px 1px white;
+	text-transform:uppercase;
+}
+
+nav ul li a:hover{
+	text-decoration:none;
+	background-color:#f0f0f0;
+}
+
+nav, article, nav ul li a,figure{
+	/* Applying CSS3 rounded corners: */
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+#page{
+	width:1340px;
+	margin:0 auto;
+	position:relative;
+}
+
+article{
+	background-color:#213E4A;
+	margin:3em 0;
+	padding:20px;
+	
+}
+
+figure{
+	
+	float:right;
+	height:400px;
+	margin-left:15px;
+	overflow:hidden;
+	width:400px;
+}
+
+figure:hover{
+	-moz-box-shadow:0 0 2px #4D7788;
+	-webkit-box-shadow:0 0 2px #4D7788;
+	box-shadow:0 0 2px #4D7788;
+}
+
+figure img{
+	margin-left:0px;
+	margin-top: 100px;
+}
+
+/* Footer styling: */
+
+footer{
+	margin-top:5px
+	margin-bottom:30px;
+	text-align:center;
+	font-size:0.825em;
+}
+
+footer p{
+	margin-bottom:-2.5em;
+	position:relative;
+}
+
+footer a,footer a:visited{
+	color:#cccccc;
+	background-color:#213e4a;
+	display:block;
+	padding:2px 4px;
+	z-index:100;
+	position:relative;
+}
+
+footer a:hover{
+	text-decoration:none;
+	background-color:#142830;
+}
+
+footer a.by{
+	float:left;
+
+}
+
+footer a.up{
+	float:right;
+}
+
+</style>
+</head>
+<body background="images/Background-Vector.jpg">
+
+<section id="page"> <!-- Defining the #page section with the section tag -->
+
+	<header> <!-- Defining the header section of the page with the appropriate tag -->
+
+	<img src="images/iplLogo.jpg" alt="logo" width="450px" height="150" />
+		
+
+		<nav class="clear"> <!-- The nav link semantically marks your main site navigation -->
+
+			<ul>
+
+				<li><a href="index.jsp">Home</a></li> 
+				<li><a href="about">About</a> </li>
+				<li><a href="signin">Sign In</a></li>
+				<li><a href="contact">Contact</a> </li>
+				<li><a href="signup">Sign Up</a></li>
+
+			</ul>
+
+		</nav>
+
+	</header>
+	
+	<div class="line"></div>  <!-- Dividing line -->
+
+	<article id="article1"> <!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+
+		<h2><font color="white">Sign In</font></h2>
+
+		<div class="line"></div>
+
+		<div class="articleBody clear">
+
+			<figure> <!-- The figure tag marks data (usually an image) that is part of the article -->
+
+				<a href="http://tutorialzine.com/2010/02/photo-shoot-css-jquery/">
+					<img src="images/signin.png" width="400px" height="150px" alt="img not found" /></a>
+
+			</figure>
+
+		<h3 align="center"><font color="white">Enter the following Information</font></h3>
+		<h3>${Message}</h3>
+		<form method="post" action="signin">
+			<table bgcolor="FloralWhite" cellpadding="5px" cellspacing="5px"
+				align="center">
+				<tr>
+					<td>Email</td>
+					<td><input type="text" name="email" required />
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="password" required />
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="SUBMIT" /></td>
+				</tr>
+			</table>
+		</form>
+		<a href="signup"><h4 align="center"><font color="#990000">New user??Click here to
+				sign up!</font></h4></a>
+
+	</div>
+	</article>
+	<footer> 
+
+			<div class="line"></div>
+
+			<p>&copy; Vivo IPL 2017 Schedule. All Rights Reserved.</p> <!-- Change the copyright notice -->
+			<a href="#" class="up"><input type= "button" value="Go Up"></a>
+			
+
+		</footer>
+
+	</section> <!-- Closing the #page section -->
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

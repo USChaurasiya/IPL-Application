@@ -1,0 +1,186 @@
+{  
+  "DreamPlayerList":[  
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Virat Kohli",
+      "Image_URL":"images\/RoyalChallengersBangalore\/virat_kohli.png",
+      "Player_Role":"Batsman",
+      "Player_DOB":"05 November 1988",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Varun Aaron",
+      "Image_URL":"images\/RoyalChallengersBangalore\/varun_aaron.png",
+      "Player_Role":"Bowler",
+      "Player_DOB":"29 October 1989",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Abu Nechim",
+      "Image_URL":"images\/RoyalChallengersBangalore\/abu_nechim.png",
+      "Player_Role":"Bowler",
+      "Player_DOB":"05 November 1988",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Left-handed",
+      "Player_Name":"Sreenath Aravind",
+      "Image_URL":"images\/RoyalChallengersBangalore\/sreenath_aravind.png",
+      "Player_Role":"Bowler",
+      "Player_DOB":"08 April 1984",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Samuel Badree",
+      "Image_URL":"images\/RoyalChallengersBangalore\/samuel_badri.png",
+      "Player_Role":"Bowler",
+      "Player_DOB":"09 March 1981",
+      "Player_Nationality":"West Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Stuart Binny",
+      "Image_URL":"images\/RoyalChallengersBangalore\/stuart_binny.png",
+      "Player_Role":"All-rounder",
+      "Player_DOB":"03 June 1984",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Yuzvendra Chahal",
+      "Image_URL":"images\/RoyalChallengersBangalore\/yuzvendra_chahal.png",
+      "Player_Role":"Bowler",
+      "Player_DOB":"23 July 1990",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"AB de Villiers",
+      "Image_URL":"images\/RoyalChallengersBangalore\/ab_de_villiers.png",
+      "Player_Role":"Wicketkeeper batsman",
+      "Player_DOB":"17 February 1984",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Praveen Dubey",
+      "Image_URL":"images\/RoyalChallengersBangalore\/praveen_dubey.png",
+      "Player_Role":"Bowling all-rounder",
+      "Player_DOB":"01 July 1993",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Left-handed",
+      "Player_Name":"Chris Gayle",
+      "Image_URL":"images\/RoyalChallengersBangalore\/chris_gayle.png",
+      "Player_Role":"All-rounder",
+      "Player_DOB":"21 September 1979",
+      "Player_Nationality":"West Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Left-handed",
+      "Player_Name":"Travis Head",
+      "Image_URL":"images\/RoyalChallengersBangalore\/travis_head.png",
+      "Player_Role":"Batsman",
+      "Player_DOB":"29 December 1993",
+      "Player_Nationality":"Australian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Left-handed",
+      "Player_Name":"Iqbal Abdulla",
+      "Image_URL":"images\/RoyalChallengersBangalore\/iqbal_abdulla.png",
+      "Player_Role":"Bowler",
+      "Player_DOB":"02 December 1989",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Kedar Jadhav",
+      "Image_URL":"images\/RoyalChallengersBangalore\/kedar_jadhav.png",
+      "Player_Role":"Batsman",
+      "Player_DOB":"26 March 1985",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"-",
+      "Player_Name":"Akshay Karnewar",
+      "Image_URL":"images\/RoyalChallengersBangalore\/akshay_karnewar.png",
+      "Player_Role":"Bowling",
+      "Player_DOB":"12 October 1992",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-hand",
+      "Player_Name":"Sarfaraz Khan",
+      "Image_URL":"images\/RoyalChallengersBangalore\/sarfaraz_khan.png",
+      "Player_Role":"Batsman",
+      "Player_DOB":"22 October 1997",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Vikramjeet Malik",
+      "Image_URL":"images\/RoyalChallengersBangalore\/vikramjeet_malik.png",
+      "Player_Role":"Bowler",
+      "Player_DOB":"09 May 1983",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Mandeep Singh",
+      "Image_URL":"images\/RoyalChallengersBangalore\/mandeep_singh.png",
+      "Player_Role":"All-rounder",
+      "Player_DOB":"18 December 1991",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Adam Milne",
+      "Image_URL":"images\/RoyalChallengersBangalore\/adam_milne.png",
+      "Player_Role":"Bowler",
+      "Player_DOB":"13 April 1992",
+      "Player_Nationality":"New Zealander",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Harshal Patel",
+      "Image_URL":"images\/RoyalChallengersBangalore\/harshal_patel.png",
+      "Player_Role":"Bowler",
+      "Player_DOB":"23 November 1990",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    },
+    {  
+      "Batting Style":"Right-handed",
+      "Player_Name":"Lokesh Rahul",
+      "Image_URL":"images\/RoyalChallengersBangalore\/lokesh_rahul.png",
+      "Player_Role":"Wicketkeeper Batsman",
+      "Player_DOB":"18 April 1992",
+      "Player_Nationality":"Indian",
+      "Player_TeamID":7
+    }
+  ]
+}
+
+

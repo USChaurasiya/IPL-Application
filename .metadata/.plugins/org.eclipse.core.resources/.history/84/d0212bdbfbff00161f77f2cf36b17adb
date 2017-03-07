@@ -1,0 +1,32 @@
+package com.uma.IplApp.ServiceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.uma.IplApp.DAO.DreamTeamPlayerDAO;
+import com.uma.IplApp.Model.DreamTeamPlayer;
+import com.uma.IplApp.Service.DreamPlayerService;
+
+public class DreamPlayerServiceImpl implements DreamPlayerService{
+
+	@Autowired
+	private DreamTeamPlayerDAO dreamTeamPlayerDAO;
+
+	public void addDreamPlayer(DreamTeamPlayer player) {
+		dreamTeamPlayerDAO.addDreamPlayer(player);
+		
+	}
+
+
+	public List<DreamTeamPlayer> displayAllDreamPlayer() {
+		return dreamTeamPlayerDAO.displayAllDreamPlayer();
+	}
+
+
+	public List<DreamTeamPlayer> displayDreamPlayerInfo(String playerName) {
+		return dreamTeamPlayerDAO.displayDreamPlayerInfo(playerName);
+	}
+
+	
+}

@@ -1,0 +1,14 @@
+package com.uma.IplApp.Service;
+
+import java.util.List;
+
+import com.uma.IplApp.Model.Player;
+
+public interface DreamPlayerService {
+
+	public void addDreamPlayer(Player player);
+
+	public List<Player> displayAllDreamPlayer(int teamID);
+
+	public List<Player> displayDreamPlayerInfo(String playerName);
+}

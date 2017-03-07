@@ -20,7 +20,9 @@
 		<servlet-name>abc</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+	<listener> 
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
+	</listener>
 	<filter>
 		<filter-name>authenticationFilter</filter-name>
 		<filter-class>com.uma.servletFilter.AuthenticationFilter</filter-class>

@@ -5,15 +5,16 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-      http://www.springframework.org/schema/context  http://www.springframework.org/schema/beans">
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<tx:annotation-driven />
 	<mvc:annotation-driven />
-	<!-- To specify the resource locations  -->
+	<!--To specify the resource locations -->
 	<mvc:resources location="/images/" mapping="/images/**" />
 
-	<!--To specify the error pages locations 
-	<mvc:view-controller path="/error" view-name="error" />-->
+	<!--To specify the error pages locations -->
+	<mvc:view-controller path="/error" view-name="error" />
+
 	<!--controller and services scan -->
 	<context:component-scan base-package="com.uma.IplApp.Controller" />
 	<context:component-scan base-package="com.uma.IplApp.Service" />
@@ -42,7 +43,13 @@
 		<property name="maxStatements" value="4" />
 	</bean>
 
-	
+	<!--JDBC properties -->
+	<!-- <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property> 
+		<property name="url" value="jdbc:mysql://localhost:3306/Ipl"></property> 
+		<property name="username" value="root"></property> <property name="password" 
+		value="root"></property> </bean> -->
+
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="pooledDataSource" />
@@ -73,6 +80,7 @@
 			</props>
 		</property>
 	</bean>
+
 	
 	<bean id="dreamPlayerDAO" class="com.uma.IplApp.DAOImpl.DreamPlayerDAOImpl"></bean>
 	<bean id="dreamPlayerService" class="com.uma.IplApp.ServiceImpl.DreamPlayerServiceImpl"></bean>
@@ -103,29 +111,8 @@
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-
-
 <mvc:resources mapping="/CSS/**" location="/CSS/" cache-period="31556926"/>
 
-
-<!-- The java mail API injection -->
-
-	<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="smtp.gmail.com" />
-		<property name="username" value="daruhmetri@gmail.com" />
-		<property name="password" value="9900141087appa" />
-		<property name="javaMailProperties">
-			<props>
-				<prop key="mail.smtp.auth">true</prop>
-				<prop key="mail.smtp.socketFactory.port">465</prop>
-				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
-				<prop key="mail.smtp.port">465</prop>
-			</props>
-		</property>
-	</bean>
-	<bean id="mail" class="com.bridgelabz.ipl.email.Mail">
-		<property name="mailSender" ref="mailSender" />
-	</bean> -->
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     <property name="maxUploadSize" value="10000000"/>
 </bean>

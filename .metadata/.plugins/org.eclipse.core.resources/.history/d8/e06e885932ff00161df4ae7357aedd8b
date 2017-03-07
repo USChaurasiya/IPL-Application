@@ -1,0 +1,88 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+ <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>IPLT20.com</title>
+	<link rel="icon" href="images/icon.jpg" />
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<spring:url value="/CSS/IPl.css" var="mainCss" />
+	
+	<link href="${mainCss}" rel="stylesheet"/>
+<style type="text/css">
+</style>
+</head>
+<body background="images/images.jpg">
+<section id="page"> 
+
+
+	
+		<header>
+			<img src="images/iplLogo.jpg" alt="logo" width="450px" height="150" />
+			<nav class="clear"> 
+				<ul>
+
+				<li><a href="index.jsp">Home</a></li>
+				<li><a href="about">About</a></li>
+				<li><a href="contact">Contact</a></li>
+				<li><a href="signout">Logout</a></li>
+
+				</ul>
+
+	</nav> </header>
+
+	<div class="line"></div>
+	 <article id="article1"> 
+	<div class="line"></div>
+
+	<div class="article2">
+<!-- 
+		<figure> 
+
+		<a href="http://tutorialzine.com/2010/02/photo-shoot-css-jquery/">
+			<img src="images/signin.png" width="400px" height="150px" alt="img not found" /></a></figure> -->
+
+		<h3 align="center">
+			<marquee behavior="scroll" direction="left"><font color="white">IPL 2017 Team List</font></marquee>
+		</h3>
+		<h3>${Message}</h3>
+		
+	<!-- 	<table border="solid"> -->
+	
+	<c:forEach var="team" items="${teamInfo}">
+	<div class="teamList">
+		<div>
+		<h1><font color="white">${team.name}</font></h1>
+		<a href="<c:url value="teamDetails"/>?teamName=${team.name}"><img src="${team.logo}" width="250px" height="250px"/></a>
+		</div>				
+	</div>
+	</c:forEach>
+
+	</div>
+	</article> 
+		</section>
+	</body>
+	
+	<footer>
+
+	<div class="line"></div>
+
+	<p><font color="white">&copy; Vivo IPL 2017 Schedule. All Rights Reserved.</font></p>
+	<!-- Change the copyright notice --> <a href="#" class="up"><input
+		type="button" value="Go Up"></a> </footer>
+	
+
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+package com.uma.IplApp.DAO;
+
+import java.util.List;
+
+import com.uma.IplApp.Model.Player;
+
+public interface DreamTeamPlayerDAO {
+	void addDreamPlayer(Player player);
+
+	List<Player> displayAllDreamPlayer(int teamId);
+
+	List<Player> displayDreamPlayerInfo(String playerName);
+}

@@ -1,5 +1,8 @@
 package com.uma.IplApp.DAOImpl;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +11,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.uma.IplApp.DAO.DreamPlayerDAO;
 import com.uma.IplApp.Model.DreamPlayer;
+import com.uma.IplApp.Model.Player;
 @Repository
 @Transactional
 public class DreamPlayerDAOImpl implements DreamPlayerDAO{
 
 	@Autowired
 	SessionFactory sessionFactory;
-	@Override
+
 	public void addDreamPlayer(DreamPlayer dreamPlayer) {
 		Session sess = sessionFactory.getCurrentSession();
 		try {
@@ -24,6 +28,14 @@ public class DreamPlayerDAOImpl implements DreamPlayerDAO{
 		}
 		
 		System.out.println("inside dream player DAo");
+	}
+	
+	public Player dreamPlayerDetails(String playerName) {
+		Session sess = sessionFactory.getCurrentSession();
+		Query qry = sess.createQuery("from Player where name=:playerName");
+		qry.setParameter("playerName", playerName);
+		Player playerDetails = (Player) qry.uniqueResult();
+		return playerDetails;
 	}
 
 }

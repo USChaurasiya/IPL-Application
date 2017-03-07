@@ -1,0 +1,27 @@
+package com.uma.IplApp.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.uma.IplApp.Model.DreamTeamPlayer;
+import com.uma.IplApp.Service.DreamPlayerService;
+
+public class DreamTeamController {
+
+	
+	@Autowired
+	DreamPlayerService dreamPlayerService;
+
+	@RequestMapping(value = "/dreamPlayerList", method = RequestMethod.GET)
+	public ModelAndView displayAllTeam(Model model) {
+
+		List<DreamTeamPlayer> dreamPlayerInfo = dreamPlayerService.displayAllDreamPlayer();
+	/*	model.addAttribute("teamName", teamName);*/
+		return new ModelAndView("dreamPlayerList", "dreamPlayerInfo", dreamPlayerInfo);
+	}
+}

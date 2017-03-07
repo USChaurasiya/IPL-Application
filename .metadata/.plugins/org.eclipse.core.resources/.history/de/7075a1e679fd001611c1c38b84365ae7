@@ -1,0 +1,38 @@
+package com.uma.IplApp;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
+public class Demo 
+{
+ public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
+	
+			JSONParser parser = new JSONParser();
+			
+				Object ob = parser.parse(new FileReader("/home/bridgeit/Desktop/IPL/newTeamInfo.json"));
+				JSONObject object = (JSONObject) ob;
+
+				JSONArray data = (JSONArray) object.get("teaminfo");
+
+				for (int i = 0; i < data.size(); i++) {
+					JSONObject itemObj = (JSONObject) data.get(i);
+
+					Object nameObj = itemObj.get("team_name");
+					System.out.println(nameObj);
+					
+					Object logoObj = itemObj.get("team_img_url");
+					System.out.println(logoObj);
+				}
+			
+			
+	 
+}
+
+}
