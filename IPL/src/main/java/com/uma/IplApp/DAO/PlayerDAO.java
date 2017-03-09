@@ -12,5 +12,7 @@ public interface PlayerDAO {
 	List<Player> displayPlayerInfo(String playerName);
 	
 	List<Player> displayAllPlayer();
+	
+	
 
 }

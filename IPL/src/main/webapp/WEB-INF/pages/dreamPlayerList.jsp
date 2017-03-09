@@ -69,11 +69,18 @@ option {
 	li.nostyle {
     list-style-type: none;
 }
+.mainDiv{
+
+border-color: maroon;
+}
 </style>
 </head>
 <body>
+<div class="mainDiv"> 
+
+
 <h2>Create Your Own Dream Team By Selecting Player</h2>
-<div class="box" >
+<div class="box">
    <select id="sbOne" multiple="multiple" size="35px">
      <optgroup label="Player List">
    <c:forEach var="player" items="${dreamPlayerInfo}">
@@ -94,16 +101,24 @@ option {
     
     </div>
     <div class="box1">
-<form:form action="dreamPlayer" method="Post">
-
-    <select id="sbTwo" name="myPlayer" multiple="multiple" size="35px">
-     <optgroup label="Selected Dream Player List">
-       
-       </optgroup>
-    </select>
-    <input type="submit" value="Confirm">
-</form:form>
-</div>
+		<form:form action="dreamPlayer" method="Post">
+		<!-- Enter Your Dream Team Name:<input type="text" name="dreamTeamName"> -->
+   		 <select id="sbTwo" name="myPlayer" multiple="multiple" size="35px">
+     	 	<optgroup label="Selected Dream Player List">
+      	 	</optgroup>
+  	     </select>
+   		 <input type="submit" value="Confirm">
+		</form:form>
+	</div>
+ </div>
+ <div>
+ 
+ <c:forEach var="dPlayer" items="dreamp">
+ 
+ ${dplayer.displayPicture}
+ </c:forEach>
+ 
+ </div>
  
 </body>
 

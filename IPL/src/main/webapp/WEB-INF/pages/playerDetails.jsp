@@ -210,6 +210,7 @@ background-color: #F3FAB6;
 	        <div><font color="white">Team ID: ${player.teamId}</font></div>
 			 <div></div>
 		 </div>
+		 
 			<div><font color="white"><a href="teamList">click here to go back team list</a></font></div>
 			
 		

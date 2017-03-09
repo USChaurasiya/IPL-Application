@@ -69,9 +69,11 @@ function closeNav() {
   <a href="signin" id="signin">SignIn</a>
   <a href="signup" id="signup">SignUp</a>
   <a href="contact" id="contact">Contact</a>
-  
-  <a href="mypage.jsp">Page</a>
+
 </div>
+<a href="newAddTeam">Add New Team</a>
+				<a href="newAddPlayer">Add New Player</a>
+ <!--  <a href="mypage.jsp">Page</a> -->
 
 	</header>
 	

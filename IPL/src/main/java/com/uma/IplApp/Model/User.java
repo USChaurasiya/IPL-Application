@@ -1,10 +1,13 @@
 package com.uma.IplApp.Model;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -15,7 +18,7 @@ public class User {
 	@GenericGenerator(name = "abc", strategy = "increment")
 	@GeneratedValue(generator = "abc")
 	@Column(name = "Id")
-	private Long id;
+	private Integer id;
 	@Column(name = "Name")
 	private String name;
 	@Column(name = "Email")
@@ -28,12 +31,16 @@ public class User {
 	private String country;
 	@Column(name = "City")
 	private String city;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	private DreamPlayer dreamPlayer;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -83,6 +90,14 @@ public class User {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public DreamPlayer getDreamPlayer() {
+		return dreamPlayer;
+	}
+
+	public void setDreamPlayer(DreamPlayer dreamPlayer) {
+		this.dreamPlayer = dreamPlayer;
 	}
 
 }

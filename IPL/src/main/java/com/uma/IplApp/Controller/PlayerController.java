@@ -3,12 +3,16 @@ package com.uma.IplApp.Controller;
 import java.io.FileReader;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,9 +29,11 @@ public class PlayerController {
 	
 	
 	@RequestMapping(value = "/playerList", method = RequestMethod.GET)
-	public ModelAndView displayAllTeam(@RequestParam("teamId") int teamId, @RequestParam("teamName") String teamName,
-			Model model) {
-
+	public ModelAndView displayAllTeam(@RequestParam("teamId")  int teamId, @RequestParam("teamName") String teamName,
+			Model model ) {
+		
+		
+		
 		List<Player> playerInfo = playerService.displayAllPlayer(teamId);
 		model.addAttribute("teamName", teamName);
 		return new ModelAndView("playerList", "playerInfo", playerInfo);
@@ -36,9 +42,14 @@ public class PlayerController {
 	@RequestMapping(value = "/playerDetails", method = RequestMethod.GET)
 	public ModelAndView displayTeamDetails(@RequestParam("playerName") String playerName, Model model) {
 
+		
+		
 		List<Player> playerDeatils = playerService.displayPlayerInfo(playerName);
 		model.addAttribute("playerName", playerName);
+		
 		return new ModelAndView("playerDetails", "playerDetails", playerDeatils);
+		
+		
 
 	}
 

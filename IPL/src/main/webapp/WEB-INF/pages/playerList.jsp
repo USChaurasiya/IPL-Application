@@ -7,35 +7,19 @@
 <spring:url value="/CSS/jquery-1.12.4.min.js" var="orbitJs" />
 <script src="${orbitJs}"></script>
 <script type="text/javascript">
-	$(function() {
-		function moveItems(origin, dest) {
-			$(origin).find(':selected').appendTo(dest);
-		}
-
-		function moveAllItems(origin, dest) {
-			$(origin).children().appendTo(dest);
-		}
-
-		$('#left').click(function() {
-			//
-			moveItems('#sbTwo', '#sbOne');
-			
-		});
-
-		$('#right').on('click', function() {
-			moveItems('#sbOne', '#sbTwo');
-		});
-
-		$('#leftall').on('click', function() {
-			moveAllItems('#sbTwo', '#sbOne');
-		});
-
-		$('#rightall').on('click', function() {
-			moveAllItems('#sbOne', '#sbTwo');
-		});
-	});
-
-	
+function clickCounter() {
+    if (typeof (Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount) + 1;
+        } else {
+            localStorage.clickcount = 1;
+        }
+        document.getElementById("result").innerHTML = localStorage.clickcount;
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+/* window.location = 'http://www.google.com'; */
+}
 </script>
 
 
@@ -215,16 +199,28 @@ footer a.up {
 				<c:forEach var="player" items="${playerInfo}">
 					<div class="teamList">
 						<div>
-						<h1>
+							<h1>
 								<font color="white">${player.name}</font>
 							</h1>
-							<a
-								href="<c:url value="playerDetails"/>?playerName=${player.name}"><img
-								src="${player.displayPicture}" width="250px" height="250px" /></a>
+
+						<a href="<c:url value="playerDetails"/>?playerName=${player.name}" onclick="clickCounter();">
+						
+						<img src="${player.displayPicture}" width="250px" height="250px" />
+						
+								
+						</a>
+						<div id="showCount"></div>
+						  <div align="center" id="result"></div>
+<!-- <p>
+            <button onclick="clickCounter();"><span style="font-size:35px;" font face="Face">View Counter </span>
+            </button>
+        </p> -->
+      
 						</div>
 					</div>
 				</c:forEach>
 			</div>
+			
   </article>
   </section>
 	</body>
