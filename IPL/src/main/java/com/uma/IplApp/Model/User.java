@@ -32,10 +32,10 @@ public class User {
 	@Column(name = "City")
 	private String city;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	/*@OneToOne(cascade=CascadeType.ALL)
 	@PrimaryKeyJoinColumn
 	private DreamPlayer dreamPlayer;
-
+*/
 	public Integer getId() {
 		return id;
 	}
@@ -92,12 +92,12 @@ public class User {
 		this.city = city;
 	}
 
-	public DreamPlayer getDreamPlayer() {
+	/*public DreamPlayer getDreamPlayer() {
 		return dreamPlayer;
 	}
 
 	public void setDreamPlayer(DreamPlayer dreamPlayer) {
 		this.dreamPlayer = dreamPlayer;
-	}
+	}*/
 
 }

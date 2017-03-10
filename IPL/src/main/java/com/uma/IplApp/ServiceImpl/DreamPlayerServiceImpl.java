@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.uma.IplApp.DAO.DreamPlayerDAO;
 import com.uma.IplApp.Model.DreamPlayer;
 import com.uma.IplApp.Model.Player;
+import com.uma.IplApp.Model.User;
 import com.uma.IplApp.Service.DreamPlayerService;
 
 public class DreamPlayerServiceImpl implements DreamPlayerService{
@@ -25,6 +26,12 @@ public class DreamPlayerServiceImpl implements DreamPlayerService{
 	public Player dreamPlayerDetails(String name) {
 		
 		return dreamPlayerDAO.dreamPlayerDetails(name);
+	}
+
+
+	@Override
+	public boolean isUserIdPresent(int dreamId) {
+		return dreamPlayerDAO.isUserIdPresent(dreamId);
 	}
 		
 

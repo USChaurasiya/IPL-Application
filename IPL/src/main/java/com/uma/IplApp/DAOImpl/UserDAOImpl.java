@@ -1,8 +1,11 @@
 package com.uma.IplApp.DAOImpl;
 
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.uma.IplApp.DAO.UserDAO;
+import com.uma.IplApp.Model.Team;
 import com.uma.IplApp.Model.User;
 
 @Repository
@@ -44,5 +48,7 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return null;
 	}
+
+	
 
 }

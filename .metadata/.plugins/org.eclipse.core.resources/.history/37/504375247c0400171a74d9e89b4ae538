@@ -1,0 +1,74 @@
+package com.uma.IplApp.Model;
+
+
+import java.util.Collection;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name = "Dream_Player")
+public class DreamPlayer {
+	@Id
+	@GenericGenerator(name = "abc", strategy = "increment")
+	@GeneratedValue(generator = "abc")
+	@Column(name = "id")
+	private Long id;
+
+	/*@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="id")
+	private Collection<Player> myDreamPlayer;*/
+
+	private String playerName;
+	
+	@Column(name = "name")
+	private String name;
+	@Column(name = "display_picture")
+	private String displayPicture;
+	@Column(name = "role")
+	private String role;
+	@Column(name = "batting_style")
+	private String battingStyle;
+	@Column(name = "nationality")
+	private String nationality;
+	@Column(name = "dob")
+	private String dob;
+	@Column(name = "teamId")
+	private int teamId; 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	
+	
+	public String getDreamTeamName() {
+		return dreamTeamName;
+	}
+
+	public void setDreamTeamName(String dreamTeamName) {
+		this.dreamTeamName = dreamTeamName;
+	}
+
+	/*public Collection<Player> getMyDreamPlayer() {
+		return myDreamPlayer;
+	}
+
+	public void setMyDreamPlayer(List<Player> list) {
+		this.myDreamPlayer = list;
+	}
+*/
+	
+}

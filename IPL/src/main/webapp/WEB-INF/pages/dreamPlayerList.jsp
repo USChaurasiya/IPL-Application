@@ -13,7 +13,8 @@
  <script src="${orbitJs}"></script>
 <script type="text/javascript">
 $(function () { function moveItems(origin, dest) {
-    $(origin).find(':selected').appendTo(dest);
+	 $(origin).find(':selected').appendTo(dest);
+	
 }
  
 function moveAllItems(origin, dest) {
@@ -25,26 +26,76 @@ $('#left').click(function () {
 });
  
 $('#right').on('click', function () {
-    moveItems('#sbOne', '#sbTwo');
-});
- 
-$('#leftall').on('click', function () {
-    moveAllItems('#sbTwo', '#sbOne');
-});
- 
-$('#rightall').on('click', function () {
-    moveAllItems('#sbOne', '#sbTwo');
-});
-});
+	
+	var toLength = $("select#sbTwo option").length;
+    var fromSelect = $("select#sbOne option:selected").length;
 
+      
+    if ((toLength+fromSelect) <= 11) {
+    	 moveItems('#sbOne', '#sbTwo');
+    }else{
+        alert("Select only 11 players");
+    }
+
+	
+	
+    
+});
+ 
+
+
+
+ var last_valid_selection = null;
 
 $(document).ready(function(){  
+	var last_valid_selection = null;
     $("option").mouseover(function(){  
         $("option").css("background-color", "lightgreen");  
     });  
     $("option").mouseout(function(){  
         $("option").css("background-color", "orange");  
       });  
+    
+});  
+    
+    /* $('#sbOne').change(function(event) {
+    	  if ($(this).val().length >11) {
+    	    alert('You can only choose 11!');
+    	    $(this).val(last_valid_selection);
+    	  } else {
+    	    last_valid_selection = $(this).val();
+    	  }
+    	});
+    $('#sbTwo').change(function(event) {
+  	  if ($(this).val().length >11) {
+  	    alert('You can  11!');
+  	    $(this).val(last_valid_selection);
+  	  } else {
+  	    last_valid_selection = $(this).val();
+  	  }
+  	});
+  
+    
+    $('select').change(function(){
+    	var theVal = $(this).val();
+    	 if ($(this).val().length < 11)
+    		 {
+    		 theVal=1;
+    		 }else
+    			 theVal=0;
+    	  
+    	  switch(theVal){
+    	    case '0':
+    	      $('#left').prop('disabled', true);
+    	      break;
+    	    case '1':
+    	      $('#right').prop('disabled', false);
+    	      break;
+    	  }
+    	});
+     
+     */
+    
 });  
 </script>
 <style type="text/css">
@@ -93,11 +144,11 @@ border-color: maroon;
   
     </div>
     <div class="box2">
-    
-    <input type="button" id="left" value="<"/><br>
     <input type="button" id="right" value=">"/><br>
-    <input type="button" id="leftall" value="<<"/><br>
-   <input type="button" id="rightall" value=">>"/><br>
+    <input type="button" id="left" value="<"/><br>
+    
+    <%-- <input type="button" id="leftall" value="<<"/><br>
+   <input type="button" id="rightall" value=">>"/><br> --%>
     
     </div>
     <div class="box1">

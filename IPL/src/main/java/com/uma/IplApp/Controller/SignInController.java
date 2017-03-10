@@ -56,6 +56,7 @@ public class SignInController {
 			// creating new session
 			sesion = request.getSession();
 			sesion.setAttribute("user", user);
+			sesion.setAttribute("email", email);
 			// Maximum active time
 			sesion.setMaxInactiveInterval(10000);
 			String userName = user.getName();

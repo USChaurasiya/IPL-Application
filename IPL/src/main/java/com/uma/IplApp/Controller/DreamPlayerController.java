@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.Session;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -50,7 +51,7 @@ public class DreamPlayerController {
 		
 		JSONObject dreamTeam = new JSONObject();
 		JSONArray dreamList = new JSONArray();
-		for (int i = 0; i < myPlayer.length; i++) {
+		for (int i = 0; i < 11; i++) {
 			JSONObject dreamPlayers = new JSONObject();
 
 			dreamPlayers.put("Player_Name", dreamPlayerService.dreamPlayerDetails(myPlayer[i]).getName());
@@ -72,7 +73,8 @@ public class DreamPlayerController {
 			e.printStackTrace();
 		}
 		return "redirect:/saveDreamPlayer";
-	}
+		}
+	
 	
 	
 	@RequestMapping(value = "/saveDreamPlayer", method = RequestMethod.GET )
@@ -90,7 +92,7 @@ public class DreamPlayerController {
 
 			JSONArray data = (JSONArray) object.get("DreamPlayerList");
 			
-			for (int i = 0; i < data.size(); i++) {
+			for (int i = 0; i <11; i++) {
 				JSONObject itemObj = (JSONObject) data.get(i);
 
 				Object nameObj = itemObj.get("Player_Name");
@@ -116,20 +118,20 @@ public class DreamPlayerController {
 				Object dobObj = itemObj.get("Player_DOB");
 				String dobName = (String) dobObj;
 				dreamPlayer.setDob(dobName);
-
-					dreamPlayer.setUser((User) session.getAttribute("user"));
-				/*Object teamIdObj = itemObj.get("Player_TeamID");
-				Integer teamIdName = Integer.valueOf((String) teamIdObj);
-				dreamPlayer.setTeamId(teamIdName);*/
 					
+				dreamPlayer.setUserId(((User) session.getAttribute("user")).getId());
+			/*Object teamIdObj = itemObj.get("Player_TeamID");
+			Integer teamIdName = Integer.valueOf((String) teamIdObj);
+				dreamPlayer.setTeamId(teamIdName);*/
+					/*System.out.println(dreamPlayerService.getUserId((String) session.getAttribute("email")));*/
 				
-				
-				dreamPlayerService.addDreamPlayer(dreamPlayer);
-				
-				
-			
-
 			}
+			if(dreamPlayerService.isUserIdPresent(((User) session.getAttribute("user")).getId()))
+			{
+				System.out.println("A Dream Team is Already Exist of User...");
+			}
+			else
+			dreamPlayerService.addDreamPlayer(dreamPlayer);
 
 		} catch (Exception e) {
 			System.out.println(e);

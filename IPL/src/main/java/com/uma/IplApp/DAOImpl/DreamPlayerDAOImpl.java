@@ -1,6 +1,5 @@
 package com.uma.IplApp.DAOImpl;
 
-import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -37,5 +36,21 @@ public class DreamPlayerDAOImpl implements DreamPlayerDAO{
 		Player playerDetails = (Player) qry.uniqueResult();
 		return playerDetails;
 	}
+	@Override
+	public boolean isUserIdPresent(int dreamId) {
+		Session session=sessionFactory.getCurrentSession();
+		
+		DreamPlayer user = (DreamPlayer) session.load(DreamPlayer.class, dreamId);
+		
+		if(user!=null)
+		{
+			return true;
+		}else
+		
+			return false;
+		
+		
+	}
+	
 
 }

@@ -1,0 +1,55 @@
+package com.uma.IplApp.Model;
+
+
+import java.util.Collection;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name = "Dream_Player")
+public class DreamPlayer {
+	@Id
+	@GenericGenerator(name = "abc", strategy = "increment")
+	@GeneratedValue(generator = "abc")
+	@Column(name = "id")
+	private Long id;
+
+	
+	private Collection<Player> myDreamPlayer;
+
+	private String dreamTeamName;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	
+	
+	public String getDreamTeamName() {
+		return dreamTeamName;
+	}
+
+	public void setDreamTeamName(String dreamTeamName) {
+		this.dreamTeamName = dreamTeamName;
+	}
+
+	public Collection<Player> getMyDreamPlayer() {
+		return myDreamPlayer;
+	}
+
+	public void setMyDreamPlayer(Collection<Player> myDreamPlayer) {
+		this.myDreamPlayer = myDreamPlayer;
+	}
+
+	
+}

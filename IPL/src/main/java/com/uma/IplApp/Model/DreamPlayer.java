@@ -49,10 +49,12 @@ public class DreamPlayer {
 	*/
 	
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	/*@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="user_id")
-	private User user;
+	private User user;*/
 	
+	
+	private int userId;
 	
 	
 	
@@ -121,12 +123,20 @@ public class DreamPlayer {
 		this.id = id;
 	}
 
-	public User getUser() {
+	/*public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+*/
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	/*public Collection<Player> getMyDreamPlayer() {

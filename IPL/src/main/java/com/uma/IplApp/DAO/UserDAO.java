@@ -6,4 +6,6 @@ public interface UserDAO {
 	void addUser(User user);
 
 	User authUser(String email, String password);
+	
+
 }
