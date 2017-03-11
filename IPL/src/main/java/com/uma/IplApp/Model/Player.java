@@ -31,6 +31,9 @@ public class Player {
 	private String dob;
 	@Column(name = "teamId")
 	private int teamId;
+	
+	private int playerView;
+	
 	/*@Column(name= "Player View")
 	private int view;*/
 	/*@ManyToAny(metaColumn = @Column)
@@ -107,6 +110,14 @@ public class Player {
 
 	public void setTeamId(int teamIdName) {
 		this.teamId = teamIdName;
+	}
+
+	public int getPlayerView() {
+		return playerView;
+	}
+
+	public void setPlayerView(int playerView) {
+		this.playerView = playerView;
 	}
 
 	/*public int getView() {

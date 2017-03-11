@@ -12,4 +12,6 @@ public interface PlayerService {
 	public List<Player> displayPlayerInfo(String playerName);
 	public List<Player> displayAllPlayer();
 
+	public int viewUpdate(int view,String playerName);
+
 }

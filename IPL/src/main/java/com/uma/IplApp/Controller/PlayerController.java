@@ -3,9 +3,15 @@ package com.uma.IplApp.Controller;
 import java.io.FileReader;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.tribes.util.Arrays;
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -24,7 +30,7 @@ import com.uma.IplApp.Service.PlayerService;
 public class PlayerController {
 	@Autowired
 	PlayerService playerService;
-
+	
 	
 	
 	
@@ -41,12 +47,21 @@ public class PlayerController {
 
 	@RequestMapping(value = "/playerDetails", method = RequestMethod.GET)
 	public ModelAndView displayTeamDetails(@RequestParam("playerName") String playerName, Model model) {
-
 		
 		
-		List<Player> playerDeatils = playerService.displayPlayerInfo(playerName);
+		
+		List<Player> playerDeatils=  playerService.displayPlayerInfo(playerName);
+		
+		
+		int view= playerDeatils.get(0).getPlayerView();
+		view++;
+		
+		int rowCount=playerService.viewUpdate(view, playerName);
+		 System.out.println("Rows affected: " + rowCount);
+		
+		
 		model.addAttribute("playerName", playerName);
-		
+		model.addAttribute("view", view);
 		return new ModelAndView("playerDetails", "playerDetails", playerDeatils);
 		
 		
@@ -98,6 +113,8 @@ public class PlayerController {
 				Object teamIdObj = itemObj.get("team_id");
 				Integer teamIdName = Integer.valueOf((String) teamIdObj);
 				player.setTeamId(teamIdName);
+				
+				player.setPlayerView(0);
 				playerService.addPlayer(player);
 
 			}

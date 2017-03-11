@@ -135,7 +135,7 @@ border-color: maroon;
    <select id="sbOne" multiple="multiple" size="35px">
      <optgroup label="Player List">
    <c:forEach var="player" items="${dreamPlayerInfo}">
- <option> ${player.name}</option>
+ <option > ${player.name}</option>
    
   <%--   <option>${player.role}</option> --%>
     </c:forEach>

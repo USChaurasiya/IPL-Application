@@ -38,6 +38,7 @@
 		<url-pattern>/teamDetails</url-pattern>
 		<url-pattern>/saveDreamPlayer</url-pattern>
 		<url-pattern>/dreamPlayerList</url-pattern>
+		
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>INCLUDE</dispatcher>

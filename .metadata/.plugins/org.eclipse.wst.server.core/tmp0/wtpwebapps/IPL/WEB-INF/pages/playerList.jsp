@@ -7,19 +7,7 @@
 <spring:url value="/CSS/jquery-1.12.4.min.js" var="orbitJs" />
 <script src="${orbitJs}"></script>
 <script type="text/javascript">
-function clickCounter() {
-    if (typeof (Storage) !== "undefined") {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount) + 1;
-        } else {
-            localStorage.clickcount = 1;
-        }
-        document.getElementById("result").innerHTML = localStorage.clickcount;
-    } else {
-        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-    }
-/* window.location = 'http://www.google.com'; */
-}
+
 </script>
 
 
@@ -203,7 +191,7 @@ footer a.up {
 								<font color="white">${player.name}</font>
 							</h1>
 
-						<a href="<c:url value="playerDetails"/>?playerName=${player.name}" onclick="clickCounter();">
+						<a href="<c:url value="playerDetails"/>?playerName=${player.name}" >
 						
 						<img src="${player.displayPicture}" width="250px" height="250px" />
 						

@@ -36,7 +36,7 @@ public class PlayerDAOImpl implements PlayerDAO {
 		return playersInfo;
 	}
 
-	public List<Player> displayPlayerInfo(String playerName) {
+	public List <Player> displayPlayerInfo(String playerName) {
 		Session sess = sessionFactory.getCurrentSession();
 		Query qry = sess.createQuery("from Player where name=:playerName");
 		qry.setParameter("playerName", playerName);
@@ -52,6 +52,19 @@ public class PlayerDAOImpl implements PlayerDAO {
 		List<Player> playersInfo = qry.list();
 		System.out.println(playersInfo.size()+","+playersInfo.toString());
 		return playersInfo;
+	}
+
+	@Override
+	public int viewUpdate(int view, String playerName) {
+		Session sess = sessionFactory.getCurrentSession();
+		String hql = "update Player set playerView = :view where name=:playerName";
+		
+        Query query = sess.createQuery(hql);
+        query.setParameter("view", view);
+        query.setParameter("playerName", playerName);
+        int rowCount=   query.executeUpdate();
+       
+		return rowCount;
 	}
 
 }

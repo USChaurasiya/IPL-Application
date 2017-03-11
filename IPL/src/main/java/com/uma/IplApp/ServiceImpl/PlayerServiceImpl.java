@@ -31,4 +31,10 @@ public class PlayerServiceImpl implements PlayerService {
 		List<Player> playerList = playerDAO.displayAllPlayer();
 		return playerList;
 	}
+
+	@Override
+	public int viewUpdate(int view, String playerName) {
+		
+		return playerDAO.viewUpdate(view, playerName);
+	}
 }

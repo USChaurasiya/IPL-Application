@@ -86,7 +86,8 @@ figure{
 	overflow:hidden;
 	width:300px;
 	background-image:url(images/iip.png);
-	padding: 3%;
+	padding: 4%;
+	margin-top: 0%;
 }
 
 figure:hover{
@@ -97,7 +98,7 @@ figure:hover{
 }
 
 figure img{
-	margin-left:-60px;
+	margin-left:-110px;
 }
 
 /* Footer styling: */
@@ -158,23 +159,26 @@ background-color: #F3FAB6;
 
 <div class="line"></div>  <!-- Dividing line -->
 
-	<article id="article1"> <!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+
+
+<article id="article1"> <!-- The new article tag. The id is supplied so it can be scrolled into view. -->
 	<c:forEach var="player" items="${playerDetails}">
 		<h2><font color="white">IPL Season 2017</font></h2>
-	
+		
 			<font color="white"><marquee> ${player.name} Details</marquee></font>
 		<div class="line"></div>
 
 		<div class="articleBody clear">
 
 		<figure> 
-			
-	<tr>
+		
+		<tr>
 			<th>DisplayPicture</th>
 			<td><img src="${player.displayPicture}" width="180px" height="180px"/></td>
 			
 			
 		</tr>
+	
 		<div>
 			<div><font color="white">Id: ${player.id}</font></div>
 			<div></div>
@@ -210,16 +214,18 @@ background-color: #F3FAB6;
 	        <div><font color="white">Team ID: ${player.teamId}</font></div>
 			 <div></div>
 		 </div>
+		 <div>
+	        <div><font color="white">Player View: ${player.playerView}</font></div>
+			 <div></div>
+		 </div>
 		 
-			<div><font color="white"><a href="teamList">click here to go back team list</a></font></div>
+		 
+		 
+		<div><font color="white"><a href="teamList">click here to go back team list</a></font></div>
 			
-		
 			</figure>
 			</div>
 			</c:forEach>
-			
-			
-			
 	</article>
 	
 		</section>

@@ -13,6 +13,6 @@ public interface PlayerDAO {
 	
 	List<Player> displayAllPlayer();
 	
-	
+	int viewUpdate(int view,String playerName);
 
 }

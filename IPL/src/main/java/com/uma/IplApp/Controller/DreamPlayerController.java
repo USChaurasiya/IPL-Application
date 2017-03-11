@@ -126,12 +126,13 @@ public class DreamPlayerController {
 					/*System.out.println(dreamPlayerService.getUserId((String) session.getAttribute("email")));*/
 				
 			}
-			if(dreamPlayerService.isUserIdPresent(((User) session.getAttribute("user")).getId()))
+			if(dreamPlayerService.isUserIdPresent(((User) session.getAttribute("user")).getId())==false)
 			{
-				System.out.println("A Dream Team is Already Exist of User...");
+				
+				dreamPlayerService.addDreamPlayer(dreamPlayer);
 			}
 			else
-			dreamPlayerService.addDreamPlayer(dreamPlayer);
+				System.out.println("A Dream Team is Already Exist of User...");
 
 		} catch (Exception e) {
 			System.out.println(e);
