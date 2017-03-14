@@ -14,7 +14,7 @@ public class Player {
 	@GenericGenerator(name = "gene", strategy = "increment")
 	@GeneratedValue(generator = "gene")
 	@Column(name = "id")
-	private Long id;
+	private Integer id;
 	@Column(name = "name")
 	private String name;
 	@Column(name = "display_picture")
@@ -40,11 +40,11 @@ public class Player {
 	@JoinColumn(name="id")
 	private DreamPlayer dreamPlayer;*/
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

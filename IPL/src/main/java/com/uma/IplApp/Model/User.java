@@ -18,7 +18,7 @@ public class User {
 	@GenericGenerator(name = "abc", strategy = "increment")
 	@GeneratedValue(generator = "abc")
 	@Column(name = "Id")
-	private Integer id;
+	private int id;
 	@Column(name = "Name")
 	private String name;
 	@Column(name = "Email")
@@ -36,11 +36,11 @@ public class User {
 	@PrimaryKeyJoinColumn
 	private DreamPlayer dreamPlayer;
 */
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

@@ -64,8 +64,9 @@
 				<value>
 					com.uma.IplApp.Model.Player
 				</value>
+				
 				<value>
-					com.uma.IplApp.Model.DreamPlayer
+					com.uma.IplApp.Model.DreamTeam
 				</value>
 			</list>
 		</property>
@@ -76,14 +77,14 @@
 			<props>
 				<prop key="hibernate.dialect"> org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 			</props>
 		</property>
 	</bean>
 
 	
-	<bean id="dreamPlayerDAO" class="com.uma.IplApp.DAOImpl.DreamPlayerDAOImpl"></bean>
-	<bean id="dreamPlayerService" class="com.uma.IplApp.ServiceImpl.DreamPlayerServiceImpl"></bean>
+	<bean id="dreamTeamDAO" class="com.uma.IplApp.DAOImpl.DreamTeamDAOImpl"></bean>
+	<bean id="dreamTeamService" class="com.uma.IplApp.ServiceImpl.DreamTeamServiceImpl"></bean>
 	
 	
 	<!-- <bean id="dreamTeamPlayerDAO" class="com.uma.IplApp.DAOImpl.DreamTeamPlayerDAOImpl"></bean> -->

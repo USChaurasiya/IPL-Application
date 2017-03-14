@@ -1,0 +1,10 @@
+package com.uma.IplApp.DAO;
+
+import java.util.List;
+
+import com.uma.IplApp.Model.Player;
+
+public interface DreamTeamDAO {
+
+	public List<Player> getPlayerById(int [] myPlayer);
+}

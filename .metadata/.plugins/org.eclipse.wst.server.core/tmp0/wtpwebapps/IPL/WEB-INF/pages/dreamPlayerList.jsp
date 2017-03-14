@@ -135,7 +135,7 @@ border-color: maroon;
    <select id="sbOne" multiple="multiple" size="35px">
      <optgroup label="Player List">
    <c:forEach var="player" items="${dreamPlayerInfo}">
- <option> ${player.name}</option>
+ <option>${player.name}</option>
    
   <%--   <option>${player.role}</option> --%>
     </c:forEach>
@@ -158,6 +158,7 @@ border-color: maroon;
      	 	<optgroup label="Selected Dream Player List">
       	 	</optgroup>
   	     </select>
+  	     Enter Your Dream Team Name<input type="text" name="dreamTeamName">
    		 <input type="submit" value="Confirm">
 		</form:form>
 	</div>

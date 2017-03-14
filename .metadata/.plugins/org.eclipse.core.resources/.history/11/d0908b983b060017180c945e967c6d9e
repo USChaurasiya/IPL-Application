@@ -1,0 +1,54 @@
+package com.uma.IplApp.Model;
+
+import java.util.List;
+import java.util.Set;
+
+public class DreamTeam {
+
+	private int dreamTeamId;
+	private String dreamTeamName;
+	private List<Player> dreamPlayer ;
+
+	public DreamTeam() {
+	}
+
+	public DreamTeam(String dreamTeamName) {
+		this.dreamTeamName = dreamTeamName;
+	}
+
+	public Student(String studentName, Set<Course> courses) {
+		this.studentName = studentName;
+		this.courses = courses;
+	}
+
+	@Id
+	@GeneratedValue
+	@Column(name = "STUDENT_ID")
+	public long getStudentId() {
+		return this.studentId;
+	}
+
+	public void setStudentId(long studentId) {
+		this.studentId = studentId;
+	}
+
+	@Column(name = "STUDENT_NAME", nullable = false, length = 100)
+	public String getStudentName() {
+		return this.studentName;
+	}
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "STUDENT_COURSE", joinColumns = { @JoinColumn(name = "STUDENT_ID") }, inverseJoinColumns = { @JoinColumn(name = "COURSE_ID") })
+	public Set<Course> getCourses() {
+		return this.courses;
+	}
+
+	public void setCourses(Set<Course> courses) {
+		this.courses = courses;
+	}
+	
+}
